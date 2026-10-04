@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tailwind UI Kit — Docs Preview</title>
+    <link rel="stylesheet" href="/src/main.css">
+    <script type="module" src="/src/main.js"></script>
+    <style>
+        /* tiny page styles for preview */
+        body {
+            padding: 2rem;
+        }
+
+        .card {
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background: var(--color-surface);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tailwind UI Kit — Docs Preview</h1>
+
+    <div style="margin:0.5rem 0 1rem;">
+        <strong>Theme:</strong>
+        <label style="margin-left:0.75rem"><input type="radio" name="theme" id="theme-default" value="default">
+            Default</label>
+        <label style="margin-left:0.5rem"><input type="radio" name="theme" id="theme-ocean" value="ocean"> Ocean</label>
+    </div>
+
+    <section class="tk-card">
+        <h2>Button example</h2>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-ghost ml-2">Secondary</button>
+        <button id="open-modal" class="btn ml-2">Open modal</button>
+    </section>
+
+    <section class="tk-card" style="margin-top:1rem">
+        <h2>Form example</h2>
+        <label class="block mb-2">Name<input class="tk-input mt-1 w-64" /></label>
+    </section>
+
+    <p style="margin-top:2rem; color: #666">Files: <a href="/src/main.css">main.css</a>, <a
+            href="../../packages/core/src/index.css">core CSS</a>, <a
+            href="../../packages/tokens/src/_tokens.css">tokens</a></p>
+    <script>
+        (function () {
+            const key = 'twkit.theme';
+            function setTheme(t) {
+                if (!t) return;
+                document.documentElement.setAttribute('data-theme', t);
+                try { localStorage.setItem(key, t); } catch (e) { }
+                document.getElementById('theme-default').checked = (t === 'default');
+                document.getElementById('theme-ocean').checked = (t === 'ocean');
+            }
+            document.addEventListener('DOMContentLoaded', () => {
+                const saved = (localStorage.getItem(key) || 'default');
+                setTheme(saved);
+                document.getElementById('theme-default').addEventListener('change', () => setTheme('default'));
+                document.getElementById('theme-ocean').addEventListener('change', () => setTheme('ocean'));
+
+                // Modal wiring
+                const openBtn = document.getElementById('open-modal');
+                const dialog = document.getElementById('demo-modal');
+                if (openBtn && dialog) {
+                    openBtn.addEventListener('click', () => {
+                        if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
+                    });
+                    dialog.querySelectorAll('[data-dialog-close]').forEach(btn => btn.addEventListener('click', () => dialog.close()));
+                }
+            });
+        })();
+    </script>
+
+    <dialog id="demo-modal" class="tk-dialog" role="dialog" aria-modal="true">
+        <div class="tk-dialog-header">
+            <strong>Example modal</strong>
+            <button data-dialog-close style="float:right" class="btn btn-ghost">Close</button>
+        </div>
+        <div class="tk-dialog-body">
+            <p>This is a native &lt;dialog&gt; modal styled with the design system tokens and utilities.</p>
+        </div>
+        <div class="tk-dialog-actions">
+            <button data-dialog-close class="btn btn-ghost">Cancel</button>
+            <button class="btn btn-primary">Confirm</button>
+        </div>
+    </dialog>
+</body>
+
+</html>

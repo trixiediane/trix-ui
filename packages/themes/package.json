@@ -1,0 +1,6 @@
+{
+    "name": "@tailwind-kit/themes",
+    "version": "0.0.0",
+    "private": true,
+    "main": "src/default-theme.css"
+}

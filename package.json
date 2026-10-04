@@ -1,0 +1,13 @@
+{
+    "name": "tailwind-ui-kit",
+    "private": true,
+    "version": "0.0.0",
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "scripts": {
+        "build": "echo \"Build step placeholder\"",
+        "docs": "echo \"Start docs placeholder\""
+    }
+}

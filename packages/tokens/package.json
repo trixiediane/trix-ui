@@ -1,0 +1,6 @@
+{
+    "name": "@tailwind-kit/tokens",
+    "version": "0.0.0",
+    "private": true,
+    "main": "src/_tokens.css"
+}

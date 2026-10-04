@@ -1,0 +1,12 @@
+/* Input component styles */
+.tk-input {
+    @apply block w-full px-3 py-2 rounded-md bg-transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-fg);
+}
+
+.tk-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 12%, transparent);
+    border-color: var(--color-primary);
+}

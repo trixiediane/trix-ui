@@ -1,0 +1,33 @@
+/* Modal/dialog component styles */
+dialog.tk-dialog {
+  width: min(640px, 92%);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0;
+  background: var(--color-surface);
+  color: var(--color-fg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+dialog.tk-dialog .tk-dialog-header {
+  padding: 1rem 1rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+dialog.tk-dialog .tk-dialog-body {
+  padding: 1rem;
+}
+
+dialog.tk-dialog .tk-dialog-actions {
+  padding: 0.75rem 1rem 1rem 1rem;
+  display:flex; gap:0.5rem; justify-content:flex-end;
+}
+
+dialog::backdrop {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  dialog.tk-dialog { transition: transform 160ms ease-out, opacity 160ms ease-out; }
+}
