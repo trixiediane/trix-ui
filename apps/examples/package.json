@@ -1,8 +1,0 @@
-{
-    "name": "apps-examples",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "echo \"Start examples placeholder\""
-    }
-}
