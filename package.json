@@ -1,0 +1,27 @@
+{
+  "name": "trix-core",
+  "version": "0.1.0",
+  "type": "module",
+  "style": "./dist/trix-ui.css",
+  "exports": {
+    "./style.css": "./dist/trix-ui.css"
+  },
+  "files": [
+    "dist/trix-ui.css",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build && vite build --mode library",
+    "prepack": "npm run build",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.3"
+  }
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" data-theme="default">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Trix UI kit demo" />
+    <script>
+      (() => {
+        const theme = localStorage.getItem('trix-ui-theme') || localStorage.getItem('diane-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const themeName = theme || 'default';
+        const root = document.documentElement;
+        root.dataset.theme = themeName;
+        root.classList.toggle('dark', prefersDark && !root.classList.contains('light'));
+      })();
+    </script>
+    <title>Trix UI</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
